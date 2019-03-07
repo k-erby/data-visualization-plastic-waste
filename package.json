@@ -1,0 +1,28 @@
+{
+  "name": "data-visualization-plastic-waste",
+  "version": "1.0.0",
+  "description": "Starter repo for the Data Visualization course (SENG 480B/CSC 511) at UVic.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "lodash": ">=4.17.5",
+    "minimatch": ">=3.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-erby/data-visualization-plastic-waste.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k-erby/data-visualization-plastic-waste/issues"
+  },
+  "homepage": "https://github.com/k-erby/data-visualization-plastic-waste#readme"
+}

@@ -1,0 +1,56 @@
+/* -------------------------------------------
+				Flexbox Basics
+------------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+._space-between {
+	justify-content: space-between;
+	align-content: space-between;
+	@include flex;
+}
+
+._space-around {
+	justify-content: space-around;
+	align-content: space-around;
+	@include flex;
+}
+
+._direction-column {
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	@include flex;
+}
+
+._direction-row {
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	@include flex;
+}
+
+._justify-center {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    @include flex;
+}
+
+._justify-right {
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: flex-end;
+    @include flex;
+}
