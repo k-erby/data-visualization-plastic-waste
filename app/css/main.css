@@ -82,17 +82,27 @@ main {
   font-color: #30424D; }
 
 .title {
-  width: 100vw;
-  background-color: #AEC9C7;
-  padding: 2rem 2rem; }
-
-.map {
-  max-width: 85vw; }
-
-.map-json {
-  width: 90vw;
-  height: 100vh;
-  background-color: #F6EDD6; }
+  font-size: 1.3rem;
+  background-color: #C7E5AF;
+  padding: 2rem 2rem;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #7e9e64; }
 
 .map-info {
+  width: 25vw;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: #7e9e64; }
+
+.map-image {
+  width: 75vw;
+  height: 100vh; }
+
+.data {
+  padding: 2rem 2rem; }
+
+#map {
+  opacity: 0.9;
+  width: 80vw;
   height: 100vh; }

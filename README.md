@@ -4,10 +4,15 @@ Starter repo for the Data Visualization course (SENG 480B/CSC 511) at UVic.
 
 ## Dependencies
 - D3.js
-- Leaflet (maybe - map interactions)
 
 ## Development
-TODO
+You'll need to install dev dependencies first. You'll need npm so 
+the scss will compile nicely to css.
+
+```bash
+npm install
+npm run build
+```
 
 ### Installation
 TODO
