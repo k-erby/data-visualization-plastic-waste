@@ -18,7 +18,7 @@
 
     <!-- Mapbox -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'
 </head>
 
 <!-- Basic Page Needs End
@@ -35,16 +35,59 @@
             <div id='map'></div>
             <!-- Change this to a secret, shhh  -->
             <script>
-            mapboxgl.accessToken = 'pk.eyJ1IjoiY215a2VyYiIsImEiOiJjajhhb3M4ajQwamNpMndxbGNwN2RpOHQ2In0.k3_T60lH3d2cE4hlVOQX2g';
-                var map = new mapboxgl.Map({
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY215a2VyYiIsImEiOiJjanQyNm5jZ28wbHJ1M3lvaHNoZ2pwOGd5In0.4AwOorclWiTE4FmzxkxJOw';
+            var map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/cmykerb/cjsz9macbapfb1fls8vr9raxg',
                 center: [20, 42],
                 zoom: 1
             });
+
+            var hoveredCountryId =  null;
+
+            // Adds the pathing around each country.
+            map.on('load', function () {
+                map.addSource("countries", {
+                "type": "geojson",
+                "data": "countries.geojson"
+            });
+
+            map.addLayer({
+                "id": "country-borders",
+                "type": "line",
+                "source": "countries",
+                "layout": {},
+                "paint": {
+                "line-color": "#7e9e64",
+                "line-width": 1
+                }
+            });
+
+            // When the user moves their mouse over the state-fill layer, we'll update the
+            // feature state for the feature under the mouse.
+            map.on("mousemove", "country-fills", function(e) {
+                if (e.features.length > 0) {
+                    if (hoveredCountryId) {
+                        map.setFeatureCountry({source: 'countries', id: hoveredCountryIdId}, { hover: false});
+                    }
+                hoveredCountryId = e.features[0].id;
+                map.setFeatureCountry({source: 'countries', id: hoveredCountryId}, { hover: true});
+                }
+            });
+
+            // When the mouse leaves the state-fill layer, update the feature state of the
+            // previously hovered feature.
+            map.on("mouseleave", "country-fills", function() {
+                if (hoveredCountryIdId) {
+                    map.setFeatureCountry({source: 'countries', id: hoveredCountryId}, { hover: false});
+                }
+                hoveredCountryId =  null;
+                });
+            });
             </script>
         </section>
     </main>
+
     <script src="./app/app.js"></script>
 </body>
 </html>
