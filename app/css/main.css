@@ -1,0 +1,108 @@
+/* Google Font */
+@import url(https://fonts.googleapis.com/css?family=Niramit);
+/* -------------------------------------------
+				Flexbox Basics
+------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+._space-between {
+  justify-content: space-between;
+  align-content: space-between;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+._space-around {
+  justify-content: space-around;
+  align-content: space-around;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+._direction-column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+._direction-row {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+._justify-center {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+._justify-right {
+  justify-content: flex-end;
+  align-content: flex-end;
+  align-items: flex-end;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+body {
+  height: 100%;
+  width: 100%; }
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+main {
+  font-family: "Niramit", sans-serif;
+  font-color: #30424D; }
+
+.title {
+  font-size: 1.3rem;
+  background-color: #C7E5AF;
+  padding: 2rem 2rem;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #7e9e64; }
+
+.map-info {
+  width: 25vw;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: #7e9e64; }
+
+.map-image {
+  width: 75vw;
+  height: 100vh; }
+
+.data {
+  padding: 2rem 2rem; }
+
+#map {
+  opacity: 0.9;
+  width: 80vw;
+  height: 100vh; }
