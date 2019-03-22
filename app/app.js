@@ -27,7 +27,7 @@ map.addControl(new mapboxgl.NavigationControl());
 map.on('load', function () {
     map.addSource("countries", {
         "type": "geojson",
-        "data": "countries.geojson"
+        "data": "../json/countries.geojson"
     });
 
 
@@ -52,7 +52,6 @@ map.on('load', function () {
             "fill-opacity": 0.5
         }
     });
-
 
     map.addLayer({
         "id": "country-lines",
