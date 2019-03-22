@@ -3,7 +3,6 @@
 
 Look at the geojson from mapbox and their us-states:
     https://docs.mapbox.com/mapbox-gl-js/assets/us_states.geojson
-
     https://docs.mapbox.com/mapbox-gl-js/example/data-join/?fbclid=IwAR3TQvXuIK1m3uDvdME0Ram7-TXzbo5hzlyZ6sqINiy7MYBP6tDUR_1kO5E
 
 ---------------------------------------------------- */
@@ -69,7 +68,7 @@ map.on('load', function () {
 
     /* ------------- Choropleth ------------- */
     // use this to dynamically change the colours of the countries
-    map.on("load", "country-filles", function(e) {
+    map.on("load", "country-fills", function(e) {
 
     });
 });
