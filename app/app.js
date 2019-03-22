@@ -17,7 +17,7 @@ var data = null;
 mapboxgl.accessToken = 'pk.eyJ1IjoiY215a2VyYiIsImEiOiJjanQyNm5jZ28wbHJ1M3lvaHNoZ2pwOGd5In0.4AwOorclWiTE4FmzxkxJOw';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/cmykerb/cjsz9macbapfb1fls8vr9raxg',
+    style: 'mapbox://styles/cmykerb/cjtkowpvw19ji1fs2549azkn9',
     center: [20, 42],
     zoom: 1
 });
@@ -49,7 +49,7 @@ map.on('load', function () {
         "source": "countries",
         'paint': {
             "fill-color": "#C7E5AF",
-            "fill-opacity": 0.5
+            "fill-opacity": 0
         }
     });
 

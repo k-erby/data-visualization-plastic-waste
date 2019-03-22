@@ -78,12 +78,11 @@ body {
   box-sizing: border-box; }
 
 main {
-  font-family: "Niramit", sans-serif;
-  font-color: #30424D; }
+  font-family: "Niramit", sans-serif; }
 
 .title {
   font-size: 1.3rem;
-  background-color: #C7E5AF;
+  background-color: #A2B7B0;
   padding: 2rem 2rem;
   border-bottom-style: solid;
   border-width: 1px;
