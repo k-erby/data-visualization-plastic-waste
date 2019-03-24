@@ -3,7 +3,14 @@
 Starter repo for the Data Visualization course (SENG 480B/CSC 511) at UVic. 
 
 ## Dependencies
-- D3.js
+- node
+
+## Tech Specs
+- Mapbox
+- Mapbox Studio
+- node
+- gulp
+- scss
 
 ## Development
 You'll need to install dev dependencies first. You'll need npm so 
@@ -14,8 +21,14 @@ npm install
 npm run build
 ```
 
+After running the above `build` command, the repo will automatically load in your 
+main browser. Any changes done to any html, scss, or js files will be automatically
+updated, without the need to reload your browser.
+
 ### Installation
-TODO
+```bash
+git clone https://github.com/k-erby/data-visualization-plastic-waste.git
+```
 
 ### Local Usage
 
@@ -67,11 +80,9 @@ git push origin :branch-name
 
 ## Additional Sources
 
-### Datasets
-TODO
-
-### Resources
-TODO
+###
+Data sets in csv format are found in `data` folder. The `json` folder has both a `json` of our
+map-based dataset, as well as a `geojson` version of that and a `geojson` for the countries.
 
 ### Future Considerations
 - deploy it so people can access it themselves. (heroku? serverless?)
