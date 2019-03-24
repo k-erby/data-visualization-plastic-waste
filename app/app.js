@@ -27,6 +27,8 @@ var map = new mapboxgl.Map({
 });
 map.addControl(new mapboxgl.NavigationControl());
 
+refreshMap();
+
 /* --------- Buttons to switch map view ------- */
 document.getElementById("switch_to_total_waste").onclick = function() {
     map = new mapboxgl.Map({
@@ -35,9 +37,9 @@ document.getElementById("switch_to_total_waste").onclick = function() {
         center: [20, 42],
         zoom: 1
     });
+    refreshMap();
 };
 
-refreshMap();
 
 document.getElementById("switch_to_percent_waste").onclick = function () {
     map = new mapboxgl.Map({
@@ -74,6 +76,17 @@ function refreshMap () {
             'paint': {
                 "fill-color": "#C7E5AF",
                 "fill-opacity": 0
+            }
+        });
+
+        map.addLayer({
+            "id": "country-lines",
+            "type": "line",
+            "source": "countries",
+            "layout": {},
+            "paint": {
+                "line-color": "#7e9e64",
+                "line-opacity": 1
             }
         });
     });
