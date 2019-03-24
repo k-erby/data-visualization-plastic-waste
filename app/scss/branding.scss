@@ -1,11 +1,20 @@
-/* Google Font */
-@import url(https://fonts.googleapis.com/css?family=Niramit);
-
 // Font
-$main-font: 'Niramit', sans-serif;
+$main-font: Roboto;
 
 // Color
+$wht: #FFFFFF;
 $green: #A2B7B0;
 $drk-green: #7e9e64;
-$drk-blue: #3e6982;
+$drk-purple: #5A5C6C;
 $charcoal: #30424D;
+
+// Color Gradient (Currently)
+$drkst-blu: #3e6982;
+$drk-blu: #709397;
+$grn-blu: #92b0a4;
+$grn: #c8d6b8;
+$ylw: #fff4c1;
+$taupe: #e3ba8e;
+$brn: #b77157;
+$rd-brn: #b4624d;
+$rd: #923334;
