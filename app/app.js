@@ -9,19 +9,30 @@ Look at the geojson from mapbox and their us-states:
 
 var hoveredCountryId = null;
 
-// they hardcoded a json in here. idk why though
-const styles = {
-    mismanaged_waste: "mapbox://styles/cmykerb/cjtnfon9y2th11fph12fe3k9j",
-    total_waste: "mapbox://styles/cmykerb/cjtnghjlm24kv1fmrutxx082z",
-    percentage_total_waste: "mapbox://styles/cmykerb/cjtkowpvw19ji1fs2549azkn9"
+const displayName ={
+    0: "Mismanaged Waste",
+    1: "Total Waste",
+    2: "Kg of Waste Per Person"
 };
+
+const stylesAndGeoJson = {
+    mismanaged_waste: ["mapbox://styles/cmykerb/cjtnfon9y2th11fph12fe3k9j",
+                        "countries-mismanaged-waste-total.geojson"],
+    total_waste: ["mapbox://styles/cmykerb/cjtnghjlm24kv1fmrutxx082z",
+                    "countries-plastic-waste-total.geojson"],
+    percentage_total_waste: ["mapbox://styles/cmykerb/cjtkowpvw19ji1fs2549azkn9",
+                                "countries-waste.geojson"]
+};
+
+var geoJson = stylesAndGeoJson.percentage_total_waste[1];
+
 
 /* ------------- MapBox API ------------- */
 mapboxgl.accessToken = 'pk.eyJ1IjoiY215a2VyYiIsImEiOiJjanQyNm5jZ28wbHJ1M3lvaHNoZ2pwOGd5In0.4AwOorclWiTE4FmzxkxJOw';
 // set the default map view
 var map = new mapboxgl.Map({
     container: 'map',
-    style: styles.percentage_total_waste,
+    style: stylesAndGeoJson.percentage_total_waste[0],
     center: [20, 42],
     zoom: 1
 });
@@ -33,10 +44,12 @@ refreshMap();
 document.getElementById("switch_to_total_waste").onclick = function() {
     map = new mapboxgl.Map({
         container: 'map',
-        style: styles.total_waste,
+        style: stylesAndGeoJson.total_waste[0],
         center: [20, 42],
         zoom: 1
     });
+    geoJson = stylesAndGeoJson.total_waste[1];
+
     refreshMap();
 };
 
@@ -44,20 +57,24 @@ document.getElementById("switch_to_total_waste").onclick = function() {
 document.getElementById("switch_to_percent_waste").onclick = function () {
     map = new mapboxgl.Map({
         container: 'map',
-        style: styles.percentage_total_waste,
+        style: stylesAndGeoJson.percentage_total_waste[0],
         center: [20, 42],
         zoom: 1
     });
+    geoJson = stylesAndGeoJson.percentage_total_waste[1];
+
     refreshMap();
 };
 
 document.getElementById("percent_mismanaged_waste").onclick = function () {
     map = new mapboxgl.Map({
         container: 'map',
-        style: styles.mismanaged_waste,
+        style: stylesAndGeoJson.mismanaged_waste[0],
         center: [20, 42],
         zoom: 1
     });
+    geoJson = stylesAndGeoJson.mismanaged_waste[1];
+
     refreshMap();
 };
 
@@ -66,7 +83,7 @@ function refreshMap () {
     map.on('load', function () {
         map.addSource("countries", {
             "type": "geojson",
-            "data": "../json/countries.geojson"
+            "data": "../json/" + geoJson
         });
 
         map.addLayer({
@@ -90,6 +107,10 @@ function refreshMap () {
             }
         });
     });
+
+    // update the map info
+    var mapData = document.getElementById("map-data");
+    mapData.innerHTML = `<h2>${outputMapName()}</h2>`;
 
 
     /* ------------- Hovering on Countries ------------- */
@@ -119,16 +140,46 @@ function refreshMap () {
 
     /* ------------- Clicking Country ------------- */
     map.on('click', 'country-borders', function (e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
         var country = e.features[0].properties.name;
+        var value = e.features[0].properties.waste;
+
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML(e.features[0].properties.name)
+            .setHTML(`<h3>${country}</h3>${outputDataFormat(value)}`)
             .addTo(map);
 
-        console.log("CLICK: This is the clicked country: " + hoveredCountryId)
+        console.log("CLICK: This is the clicked country: " + e.features[0].properties.waste)
     });
+}
+
+function outputMapName() {
+
+    if (geoJson === stylesAndGeoJson.mismanaged_waste[1]) {
+        return displayName[0];
+    }
+    else if (geoJson === stylesAndGeoJson.total_waste[1]) {
+        return displayName[1];
+    }
+    else if (geoJson === stylesAndGeoJson.percentage_total_waste[1]) {
+        return displayName[2];
+    }
+}
+
+function outputDataFormat(value) {
+
+    if (geoJson === stylesAndGeoJson.mismanaged_waste[1]) {
+        return `${value === -1 ? "unknown" : value + "%"}`;
+
+    }
+    else if (geoJson === stylesAndGeoJson.total_waste[1]) {
+        return `${value === -1 ? "unknown" : value + " tonnes/year"}`;
+    }
+
+    else if (geoJson === stylesAndGeoJson.percentage_total_waste[1]) {
+        return `${value === -1 ? "unknown" : value + " kg/person"}`;
+    }
+    return "";
 }
 
 
