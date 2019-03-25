@@ -91,6 +91,10 @@ svg {
 .link-button { @include button-spec($drk-blu); }
 .link-button:hover { @include button-spec-hover; }
 
+.map-button {@include button-spec($grn);}
+.map-button:hover { @include button-spec-hover; }
+
+
 #Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
   animation: float 1s infinite ease-in-out alternate;
 }
