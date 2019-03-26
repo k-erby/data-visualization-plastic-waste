@@ -1,0 +1,43 @@
+// -----------------------------------------------------------
+//				          Imports
+// -----------------------------------------------------------
+
+@import "./branding.scss";
+
+@mixin button-spec($bg-color) {
+    background: $bg-color;
+    padding: 8px 25px;
+    border-radius: 4px;
+    border-width: 0px;
+    color: $wht;
+    font-weight: bold;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    font-family: $main-font;
+}
+
+@mixin button-spec-hover {
+    background: $drk-purple;
+    color: $wht;
+}
+
+.buttons-con .action-link-wrap {
+    margin-top: 40px;
+}
+
+.link-button { @include button-spec($drk-blu); }
+.link-button:hover { @include button-spec-hover; }
+
+.map-button {
+    min-width: 250px;
+    margin-top: 10px;
+    @include button-spec($green);
+}
+.map-button:hover { @include button-spec-hover; }
+
+// Gross, but this'll do for now
+.map-button-list {
+    margin-top: 380px;
+}
