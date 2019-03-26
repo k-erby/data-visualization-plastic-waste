@@ -5,7 +5,7 @@
 @import "./branding.scss";
 
 
-.map-title {
+#map-data-title {
     font-size: 1.8rem;
     color: $wht;
     background-color: $green;
@@ -32,7 +32,6 @@
     padding: 1rem 1rem;
     color: $charcoal;
 }
-#map-data-title { font-size: 1.4rem; }
 #map-data-details { font-size: 1.2rem; }
 
 

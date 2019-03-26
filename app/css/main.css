@@ -151,7 +151,7 @@ svg {
   display: -webkit-flex;
   display: flex; }
 
-.map-title {
+#map-data-title {
   font-size: 1.8rem;
   color: #FFFFFF;
   background-color: #A2B7B0;
@@ -174,9 +174,6 @@ svg {
 .map-data {
   padding: 1rem 1rem;
   color: #30424D; }
-
-#map-data-title {
-  font-size: 1.4rem; }
 
 #map-data-details {
   font-size: 1.2rem; }
