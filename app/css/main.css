@@ -38,7 +38,7 @@
   color: #FFFFFF; }
 
 .map-button-list {
-  margin-top: 380px; }
+  margin-top: 150px; }
 
 #intro-bg {
   background-color: #A2B7B0; }
@@ -161,6 +161,11 @@ svg {
   border-color: #7e9e64;
   border-opacity: 0.8; }
 
+#map-data-description {
+  font-size: 1rem;
+  text-align: justify;
+  padding: 20px; }
+
 .map-info {
   width: 27vw;
   border-right-style: solid;
@@ -174,9 +179,6 @@ svg {
 .map-data {
   padding: 1rem 1rem;
   color: #30424D; }
-
-#map-data-details {
-  font-size: 1.2rem; }
 
 .map-overlay {
   position: absolute;
