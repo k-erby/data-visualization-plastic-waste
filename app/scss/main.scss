@@ -3,35 +3,11 @@
 // -----------------------------------------------------------
 
 @import "./branding.scss";
+@import "./buttons.scss";
+@import "./intro.scss";
 @import "./flex.scss";
+@import "./map.scss";
 
-// -----------------------------------------------------------
-//                          Mixins
-// -----------------------------------------------------------
-
-@mixin button-spec($bg-color) {
-    background: $bg-color;
-    padding: 8px 25px;
-    border-radius: 4px;
-    color: $wht;
-    font-weight: bold;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    text-decoration: none;
-    margin-right: 10px;
-    font-family: $main-font;
-}
-
-@mixin button-spec-hover {
-    background: $drk-purple;
-    color: $wht;
-}
-
-@mixin abs-split {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
 
 // -----------------------------------------------------------
 //                      Basic Page Needs
@@ -52,96 +28,4 @@ body {
 
 main {
     font-family: $main-font;
-}
-
-
-// -----------------------------------------------------------
-//                      Intro Styles
-// -----------------------------------------------------------
-#intro-bg {
-    background-color: $green;
-}
-
-svg {
-    margin-top: -250px;
-    margin-left: -400px;
-    @include abs-split;
-}
-
-.message-box {
-    height: 200px;
-    width: 380px;
-    margin-top: -100px;
-    margin-left: 50px;
-    color: #FFF;
-    font-weight: 300;
-    @include abs-split;
-}
-
-.message-box h1 {
-    font-size: 3rem;
-    line-height: 46px;
-    margin-bottom: 40px;
-}
-
-.buttons-con .action-link-wrap {
-    margin-top: 40px;
-}
-
-.link-button { @include button-spec($drk-blu); }
-.link-button:hover { @include button-spec-hover; }
-
-.map-button {@include button-spec($grn);}
-.map-button:hover { @include button-spec-hover; }
-
-
-#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
-  animation: float 1s infinite ease-in-out alternate;
-}
-#Polygon-2 { animation-delay: .2s; }
-#Polygon-3 { animation-delay: .4s; }
-#Polygon-4 { animation-delay: .6s; }
-#Polygon-5 { animation-delay: .8s; }
-@keyframes float { 100% { transform: translateY(20px); } }
-
-
-// -----------------------------------------------------------
-//                      App Styles
-// -----------------------------------------------------------
-.map-title {
-    font-size: 1.3rem;
-    background-color: $green;
-    padding: 2rem 2rem;
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: $drk-green;
-}
-
-.map-info {
-    width: 25vw;
-
-    border-right-style: solid;
-    border-width: 1px;
-    border-color: $drk-green;
-}
-
-.map-image {
-    width: 75vw;
-    height: 100vh;
-}
-
-.map-data {
-    padding: 2rem 2rem;
-}
-
-// ---------------------- Mapbox Specs ----------------------
-#map {
-	opacity: 0.9;
-    width: 80vw;
-    height: 100vh;
-}
-
-.mapboxgl-popup {
-    max-width: 400px;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
