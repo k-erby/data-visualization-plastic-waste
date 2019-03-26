@@ -15,6 +15,20 @@ const displayName = {
     2: "Kg of Waste Per Person"
 };
 
+const dataDescriptions = {
+    0: "Share of total plastic waste that is inadequately managed. Inadequately disposed waste is not formally managed"
+        + " and includes disposal in dumps or open, uncontrolled landfills, where it is not fully contained."
+        + " Inadequately managed waste has high risk of polluting rivers and oceans. This does not include 'littered'"
+        + " plastic waste, which is approximately 2% of total waste (including high-income countries).",
+    1: "Total plastic waste generation by country, measured in tonnes per year. This measures total plastic waste"
+        + " generation prior to management and therefore does not represent the quantity of plastic at risk of"
+        + " polluting waterways, rivers and the ocean environment. High-income countries typically have well-managed"
+        + " waste streams and therefore low levels of plastic pollution to external environments.",
+    2: "Daily plastic waste generation per person, measured in kilograms per person per day. This measures the"
+        + " overall per capita plastic waste generation rate prior to waste management, recycling or incineration."
+        + " It does not therefore directly indicate the risk of pollution to waterways or marine environments."
+}
+
 const stylesAndGeoJson = {
     mismanaged_waste: ["mapbox://styles/cmykerb/cjtnfon9y2th11fph12fe3k9j",
                         "countries-mismanaged-waste-total.geojson"],
@@ -109,8 +123,9 @@ function refreshMap () {
 
     // update the map info
     var mapData = document.getElementById("map-data-title");
+    var mapDataDescription = document.getElementById("map-data-description");
     mapData.innerHTML = `${outputMapName()}`;
-
+    mapDataDescription.innerHTML = `${outputDataDescription()}`;
 
     /* ------------- Clicking Country ------------- */
     map.on('click', 'country-borders', function (e) {
@@ -129,6 +144,14 @@ function outputMapName() {
         case stylesAndGeoJson.mismanaged_waste[1]:          { return displayName[0]; }
         case stylesAndGeoJson.total_waste[1]:               { return displayName[1]; }
         case stylesAndGeoJson.percentage_total_waste[1]:    { return displayName[2]; }
+    }
+}
+
+function outputDataDescription() {
+    switch(geoJson) {
+        case stylesAndGeoJson.mismanaged_waste[1]:          { return dataDescriptions[0]; }
+        case stylesAndGeoJson.total_waste[1]:               { return dataDescriptions[1]; }
+        case stylesAndGeoJson.percentage_total_waste[1]:    { return dataDescriptions[2]; }
     }
 }
 

@@ -16,6 +16,12 @@
     border-opacity: 0.8;
 }
 
+#map-data-description {
+    font-size: 1rem;
+    text-align:justify;
+    padding: 20px;
+}
+
 .map-info {
     width: 27vw;
     border-right-style: solid;
@@ -32,7 +38,7 @@
     padding: 1rem 1rem;
     color: $charcoal;
 }
-#map-data-details { font-size: 1.2rem; }
+
 
 
 // ------------------------ Overlay -------------------------
