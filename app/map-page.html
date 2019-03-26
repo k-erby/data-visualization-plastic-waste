@@ -25,19 +25,29 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <body>
     <main class="app _direction-row">
-        <section class="map-info">
+        <section class="map-info _direction-column">
             <h1 class="map-title _justify-center">Global Plastic Pollution</h1>
-            <!-- info goes here -->
-            <p class="map-data" id="map-data"></p>
-            <div>
-                <button id="switch_to_total_waste" class="map-button">Total Waste Per Country</button>
+
+            <!-- map information goes here -->
+            <article class="map-data">
+                <h3 id="map-data-title"></h3>
+                <p id="map-data-details"></p>
+            </article>
+
+            <div class="map-button-list _direction-column _justify-center">
                 <button id="switch_to_percent_waste" class="map-button">Kg per Person Waste Per Country</button>
                 <button id="percent_mismanaged_waste" class="map-button">Percent Mismanaged Per Country</button>
+                <button id="switch_to_total_waste" class="map-button">Total Waste Per Country</button>
             </div>
         </section>
 
         <section class="map-image">
-            <div id='map'></div>
+            <div id="map"></div>
+            <div class="map-overlay" id="features">
+                <p id="features-help">Click on different countries to bring up more information.</p>
+            </div>
+            <div class="map-overlay _direction-column" id="legend"></div>
+
             <script src="app.js"></script>
         </section>
     </main>

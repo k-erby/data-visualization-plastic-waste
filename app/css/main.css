@@ -1,3 +1,90 @@
+.buttons-con .action-link-wrap {
+  margin-top: 40px; }
+
+.link-button {
+  background: #709397;
+  padding: 8px 25px;
+  border-radius: 4px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-weight: bold;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  font-family: Roboto; }
+
+.link-button:hover {
+  background: #5A5C6C;
+  color: #FFFFFF; }
+
+.map-button {
+  min-width: 250px;
+  margin-top: 10px;
+  background: #A2B7B0;
+  padding: 8px 25px;
+  border-radius: 4px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-weight: bold;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  font-family: Roboto; }
+
+.map-button:hover {
+  background: #5A5C6C;
+  color: #FFFFFF; }
+
+.map-button-list {
+  margin-top: 380px; }
+
+#intro-bg {
+  background-color: #A2B7B0; }
+
+svg {
+  margin-top: -250px;
+  margin-left: -400px;
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.message-box {
+  height: 200px;
+  width: 380px;
+  margin-top: -100px;
+  margin-left: 50px;
+  color: #FFF;
+  font-weight: 300;
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.message-box h1 {
+  font-size: 3rem;
+  line-height: 46px;
+  margin-bottom: 40px; }
+
+#Polygon-1, #Polygon-2, #Polygon-3, #Polygon-4, #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate; }
+
+#Polygon-2 {
+  animation-delay: .2s; }
+
+#Polygon-3 {
+  animation-delay: .4s; }
+
+#Polygon-4 {
+  animation-delay: .6s; }
+
+#Polygon-5 {
+  animation-delay: .8s; }
+
+@keyframes float {
+  100% {
+    transform: translateY(20px); } }
+
 /* -------------------------------------------
 				Flexbox Basics
 ------------------------------------------- */
@@ -64,6 +151,91 @@
   display: -webkit-flex;
   display: flex; }
 
+.map-title {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  background-color: #A2B7B0;
+  padding: 2rem 2rem;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #7e9e64;
+  border-opacity: 0.8; }
+
+.map-info {
+  width: 27vw;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: #709397; }
+
+.map-image {
+  width: 73vw;
+  height: 100vh; }
+
+.map-data {
+  padding: 1rem 1rem;
+  color: #30424D; }
+
+#map-data-title {
+  font-size: 1.4rem; }
+
+#map-data-details {
+  font-size: 1.2rem; }
+
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  border-radius: 3px; }
+
+#features {
+  top: 0;
+  padding: 10px;
+  height: 50px;
+  margin: 0px 50px 40px 0px;
+  width: 220px;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #30424D; }
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  margin: 0px 50px 40px 0px;
+  width: 220px; }
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 15px;
+  height: 15px; }
+
+.legendKeyBox, .legendTextBox {
+  justify-content: space-between;
+  align-content: space-between;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+.legendTextBox {
+  padding-top: 5px;
+  font-size: 0.85rem;
+  color: #30424D; }
+
+#map {
+  opacity: 0.9;
+  width: 80vw;
+  height: 100vh; }
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font-size: 0.8rem;
+  color: #30424D; }
+
 body {
   height: 100%;
   width: 100%; }
@@ -77,128 +249,3 @@ body {
 
 main {
   font-family: Roboto; }
-
-#intro-bg {
-  background-color: #A2B7B0; }
-
-svg {
-  margin-top: -250px;
-  margin-left: -400px;
-  position: absolute;
-  top: 50%;
-  left: 50%; }
-
-.message-box {
-  height: 200px;
-  width: 380px;
-  margin-top: -100px;
-  margin-left: 50px;
-  color: #FFF;
-  font-weight: 300;
-  position: absolute;
-  top: 50%;
-  left: 50%; }
-
-.message-box h1 {
-  font-size: 3rem;
-  line-height: 46px;
-  margin-bottom: 40px; }
-
-.buttons-con .action-link-wrap {
-  margin-top: 40px; }
-
-.link-button {
-  background: #709397;
-  padding: 8px 25px;
-  border-radius: 4px;
-  color: #FFFFFF;
-  font-weight: bold;
-  transition: all 0.3s linear;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 10px;
-  font-family: Roboto; }
-
-.link-button:hover {
-  background: #5A5C6C;
-  color: #FFFFFF; }
-
-.map-button {
-  background: #c8d6b8;
-  padding: 8px 25px;
-  border-radius: 4px;
-  color: #FFFFFF;
-  font-weight: bold;
-  transition: all 0.3s linear;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 10px;
-  font-family: Roboto; }
-
-.map-button:hover {
-  background: #5A5C6C;
-  color: #FFFFFF; }
-
-#Polygon-1, #Polygon-2, #Polygon-3, #Polygon-4, #Polygon-4, #Polygon-5 {
-  animation: float 1s infinite ease-in-out alternate; }
-
-#Polygon-2 {
-  animation-delay: .2s; }
-
-#Polygon-3 {
-  animation-delay: .4s; }
-
-#Polygon-4 {
-  animation-delay: .6s; }
-
-#Polygon-5 {
-  animation-delay: .8s; }
-
-@keyframes float {
-  100% {
-    transform: translateY(20px); } }
-
-.map-title {
-  font-size: 1.3rem;
-  background-color: #A2B7B0;
-  padding: 2rem 2rem;
-  border-bottom-style: solid;
-  border-width: 1px;
-  border-color: #7e9e64; }
-
-.map-info {
-  width: 25vw;
-  border-right-style: solid;
-  border-width: 1px;
-  border-color: #7e9e64; }
-
-.map-image {
-  width: 75vw;
-  height: 100vh; }
-
-.map-data {
-  padding: 2rem 2rem; }
-
-#map {
-  opacity: 0.9;
-  width: 80vw;
-  height: 100vh; }
-
-.mapboxgl-popup {
-  max-width: 400px;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; }
-
-#legend {
-  padding: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  line-height: 18px;
-  height: 150px;
-  margin-bottom: 40px;
-  width: 100px; }
-
-.legend-key {
-  display: inline-block;
-  border-radius: 20%;
-  width: 10px;
-  height: 10px;
-  margin-right: 5px; }
