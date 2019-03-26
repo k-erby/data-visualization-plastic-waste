@@ -174,10 +174,6 @@ function displayLegend() {
     var legendKeyBox = document.createElement("div");
     legendKeyBox.className = "legendKeyBox";
 
-function displayLegend() {
-    var legendKeyBox = document.createElement("div");
-    legendKeyBox.className = "legendKeyBox";
-
     for (i = 0; i < colors.length; i++) {
       var color = colors[i];
       var key = document.createElement("span");
