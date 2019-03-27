@@ -161,8 +161,8 @@ function outputDataFormat(value) {
             return `${value === -1 ? "unknown" : value + "%"}`;
         }
         case stylesAndGeoJson.total_waste[1]: {
-            return `${value === -1 ? "unknown" : value + " tonnes/year"}`;
-        }
+			return value == -1 ? value = "unknown" : value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + " tonnes/year";
+		}
         case stylesAndGeoJson.percentage_total_waste[1]: {
             return `${value === -1 ? "unknown" : value + " kg/person"}`;
         }
