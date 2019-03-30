@@ -31,7 +31,7 @@
 .link-button:hover { @include button-spec-hover; }
 
 .map-button {
-    min-width: 250px;
+    width: 90%;
     margin-top: 10px;
     @include button-spec($green);
 }
@@ -39,5 +39,5 @@
 
 // Gross, but this'll do for now
 .map-button-list {
-    margin-top: 150px;
+    //margin-top: 10%;
 }

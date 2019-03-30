@@ -19,7 +19,7 @@
   color: #FFFFFF; }
 
 .map-button {
-  min-width: 250px;
+  width: 90%;
   margin-top: 10px;
   background: #A2B7B0;
   padding: 8px 25px;
@@ -37,13 +37,10 @@
   background: #5A5C6C;
   color: #FFFFFF; }
 
-.map-button-list {
-  margin-top: 150px; }
-
 #intro-bg {
   background-color: #A2B7B0; }
 
-svg {
+#hexa {
   margin-top: -250px;
   margin-left: -400px;
   position: absolute;
@@ -234,6 +231,12 @@ svg {
   max-width: 400px;
   font-size: 0.8rem;
   color: #30424D; }
+
+.map-info #exit_button {
+  width: 40px;
+  margin-left: auto;
+  margin-top: 2px;
+  margin-right: 2px; }
 
 body {
   height: 100%;

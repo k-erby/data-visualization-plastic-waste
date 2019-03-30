@@ -1,3 +1,50 @@
+/* ------------- Start sidebar d3 visualization things ------------- */
+
+	//Initialize radar chart variables
+	//note: plastic_waste_complete and averages are imported JSON
+	var d3_country_json = JSON.parse(plastic_waste_complete);
+	var d3_averages_json = JSON.parse(averages);
+	var radar_averages = [];
+	for (var key in d3_averages_json){
+		if (d3_averages_json.hasOwnProperty(key)) {
+			radar_averages.push({"axis": key, "value": d3_averages_json[key]/100});
+		}
+	}
+	
+	var margin = {top: 35, right: 80, bottom: 10, left: 25},
+	width = Math.min(300, window.innerWidth - 10) - margin.left - margin.right,
+	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+	
+	var color = d3.scale.ordinal()
+				.range(["#EDC951","#CC333F","#00A0B0"]);
+	
+	var radarChartOptions = {
+	  w: width,
+	  h: height,
+	  margin: margin,
+	  maxValue: 0.5,
+	  levels: 5,
+	  roundStrokes: true,
+	  color: color
+	};
+
+	//Adds current country radar chart to sidebar
+	var build_radar = function(country){
+	var country_json = d3_country_json.filter(function(c){return c.country == country})[0];//["data"];
+  
+		console.log(country_json);
+		console.log(d3_averages_json);
+		var radar_country = [];
+		for (var key in country_json){
+			if (country_json.hasOwnProperty(key) && (key == "percent_plastic_water" || key == "percent_inadequately_managed" || key == "percent_plastic")) { //if (country_json.hasOwnProperty(key) && (key == "waste_generation" || key == "plastic_generation" || key == "inadequately_managed")){
+				radar_country.push({"axis": key, "value": country_json[key]/100});
+			}
+		}
+
+		//show chart
+		RadarChart(".radarChart", [radar_averages,radar_country], radarChartOptions);
+	};
+/* ------------- End sidebar d3 ------------- */
 
 /* ----------------------------------------------------
 
@@ -127,16 +174,62 @@ function refreshMap () {
     mapData.innerHTML = `${outputMapName()}`;
     mapDataDescription.innerHTML = `${outputDataDescription()}`;
 
-    /* ------------- Clicking Country ------------- */
-    map.on('click', 'country-borders', function (e) {
+    /* ------------- Country Specific Actions ------------- */
+	
+	var popup = new mapboxgl.Popup()
+	
+	//Hover pop-up
+    map.on('mouseenter', 'country-borders', function (e) {
+		map.getCanvas().style.cursor = 'pointer';
         var country = e.features[0].properties.name;
         var value = e.features[0].properties.waste;
 
-        new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
+		popup.setLngLat(e.lngLat)
             .setHTML(`<h3>${country}</h3>${outputDataFormat(value)}`)
             .addTo(map);
     });
+	
+	//Click to modify sidebar
+	map.on('click', 'country-borders', function (e) {
+        var country = e.features[0].properties.name;
+		console.log(country);
+	
+		build_radar(country);
+		   
+		//Modify sidebar labels
+		var mapData = document.getElementById("map-data-title");
+		var mapDataDescription = document.getElementById("map-data-description");
+		mapData.innerHTML = `${country}`;
+		mapDataDescription.innerHTML = `The radar chart shows how ${country} differs from average waste impact.`;
+		
+		//Hide nav buttons
+		var buttons = document.getElementsByClassName("map-button-list")[0];
+		buttons.style.visibility = "hidden";
+		
+		
+		//Add exit button
+		/*var sidebar = document.getElementsByClassName("map-info")[0];
+		var exit_button = document.createElement("button");
+		exit_button.type = "button";
+		exit_button.id = "exit_button";
+		exit_button.innerHTML = "X";
+		sidebar.prepend(exit_button);
+		*/
+		//exit_button.onclick = func;
+		
+		//TODO: add radar legend
+    });
+	
+	//TODO: add removal of radarChart
+	//on-click of exit button
+	
+	//TODO: display total waste (current, average)
+	
+	//Clear hover pop-up
+	map.on('mouseleave', 'country-borders', function() {
+		map.getCanvas().style.cursor = '';
+		popup.remove();
+	});
 }
 
 function outputMapName() {
