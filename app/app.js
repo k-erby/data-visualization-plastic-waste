@@ -1,22 +1,12 @@
 /* ------------- Start sidebar d3 visualization things ------------- */
 
 	//Initialize radar chart variables
-	//note: plastic_waste_complete and averages are imported JSON
-	var d3_country_json = JSON.parse(plastic_waste_complete);
-	var d3_averages_json = JSON.parse(averages);
-	var radar_averages = [];
-	for (var key in d3_averages_json){
-		if (d3_averages_json.hasOwnProperty(key)) {
-			radar_averages.push({"axis": key, "value": d3_averages_json[key]/100});
-		}
-	}
-	
-	var margin = {top: 35, right: 80, bottom: 10, left: 25},
+	var margin = {top: 35, right: 80, bottom: 30, left: 50},
 	width = Math.min(300, window.innerWidth - 10) - margin.left - margin.right,
 	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 	
 	var color = d3.scale.ordinal()
-				.range(["#EDC951","#CC333F","#00A0B0"]);
+				.range(["#EDC951","#CC333F"]);//,"#00A0B0"]);
 	
 	var radarChartOptions = {
 	  w: width,
@@ -24,20 +14,33 @@
 	  margin: margin,
 	  maxValue: 0.5,
 	  levels: 5,
+	  //labelFactor: 1.2,
 	  roundStrokes: true,
 	  color: color
 	};
-
+	
+	var nice_labels = {"percent_inadequately_managed":"inadequately managed plastic", "percent_plastic_water":"plastic in water streams", "percent_plastic":"total plastic"};
+	
+	//note: plastic_waste_complete and averages are imported JSON
+	var d3_country_json = JSON.parse(plastic_waste_complete);
+	var d3_averages_json = JSON.parse(averages);
+	var radar_averages = [];
+	for (var key in d3_averages_json){
+		if (d3_averages_json.hasOwnProperty(key)) {
+			radar_averages.push({"axis": nice_labels[key], "value": d3_averages_json[key]/100});
+		}
+	}
+	
 	//Adds current country radar chart to sidebar
 	var build_radar = function(country){
-	var country_json = d3_country_json.filter(function(c){return c.country == country})[0];//["data"];
+	var country_json = d3_country_json.filter(function(c){return c.country == country})[0];
   
 		console.log(country_json);
 		console.log(d3_averages_json);
 		var radar_country = [];
 		for (var key in country_json){
-			if (country_json.hasOwnProperty(key) && (key == "percent_plastic_water" || key == "percent_inadequately_managed" || key == "percent_plastic")) { //if (country_json.hasOwnProperty(key) && (key == "waste_generation" || key == "plastic_generation" || key == "inadequately_managed")){
-				radar_country.push({"axis": key, "value": country_json[key]/100});
+			if (country_json.hasOwnProperty(key) && (key == "percent_plastic_water" || key == "percent_inadequately_managed" || key == "percent_plastic")){
+				radar_country.push({"axis": nice_labels[key], "value": country_json[key]/100});
 			}
 		}
 
@@ -63,7 +66,17 @@ const displayName = {
 };
 
 const dataDescriptions = {
-    0: "Share of total plastic waste that is inadequately managed. Inadequately disposed waste is not formally managed"
+    0: "Plastic waste that is inadequately disposed of as a percentage of the country's total waste generation."
+        + "<br><br>This includes disposal in dumps or open, uncontrolled landfills, where it is not fully contained"
+        + " and has a high risk of polluting rivers and oceans. This does not include 'littered'"
+        + " plastic waste (approximately 2% of total waste).",
+    1: "Total plastic waste generation by country, measured in tonnes per year, prior to waste management,"
+		+ " recycling, or incineration.<br><br>High-income countries typically have well-managed"
+        + " waste streams and therefore low levels of plastic pollution to external environments.",
+    2: "Daily plastic waste generation per person, measured in kilograms per person per day.<br><br>This measures the"
+        + " overall per capita plastic waste generation rate prior to waste management, recycling or incineration."
+        + " It does not therefore directly indicate the risk of pollution to waterways or marine environments."
+	/*0: "Share of total plastic waste that is inadequately managed. Inadequately disposed waste is not formally managed"
         + " and includes disposal in dumps or open, uncontrolled landfills, where it is not fully contained."
         + " Inadequately managed waste has high risk of polluting rivers and oceans. This does not include 'littered'"
         + " plastic waste, which is approximately 2% of total waste (including high-income countries).",
@@ -73,7 +86,7 @@ const dataDescriptions = {
         + " waste streams and therefore low levels of plastic pollution to external environments.",
     2: "Daily plastic waste generation per person, measured in kilograms per person per day. This measures the"
         + " overall per capita plastic waste generation rate prior to waste management, recycling or incineration."
-        + " It does not therefore directly indicate the risk of pollution to waterways or marine environments."
+        + " It does not therefore directly indicate the risk of pollution to waterways or marine environments."*/
 }
 
 const stylesAndGeoJson = {
@@ -200,7 +213,7 @@ function refreshMap () {
 		var mapData = document.getElementById("map-data-title");
 		var mapDataDescription = document.getElementById("map-data-description");
 		mapData.innerHTML = `${country}`;
-		mapDataDescription.innerHTML = `The radar chart shows how ${country} differs from average waste impact.`;
+		mapDataDescription.innerHTML = `The radar chart shows how ${country} (red) differs from average plastic waste impact (yellow).<br><br>Percentages are in terms of total country waste.`;
 		
 		//Hide nav buttons
 		var buttons = document.getElementsByClassName("map-button-list")[0];
@@ -254,7 +267,7 @@ function outputDataFormat(value) {
             return `${value === -1 ? "unknown" : value + "%"}`;
         }
         case stylesAndGeoJson.total_waste[1]: {
-            return `${value === -1 ? "unknown" : value + " tonnes/year"}`;
+            return value == -1 ? value = "unknown" : value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + " tonnes/year";
         }
         case stylesAndGeoJson.percentage_total_waste[1]: {
             return `${value === -1 ? "unknown" : value + " kg/person"}`;

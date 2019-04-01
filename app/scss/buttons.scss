@@ -33,11 +33,11 @@
 .map-button {
     width: 90%;
     margin-top: 10px;
+	margin-left: 6px;
     @include button-spec($green);
 }
 .map-button:hover { @include button-spec-hover; }
 
-// Gross, but this'll do for now
 .map-button-list {
     //margin-top: 10%;
 }
