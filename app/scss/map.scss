@@ -6,30 +6,21 @@
 
 #map-data-title {
   font-size: 1.8rem;
-  color: $wht;
-  background-color: $green;
-  padding: 4rem 2rem;
+  color: $black;
+  padding: 40px;
   border: none;
-  //   border-bottom-style: solid;
-  //   border-width: 1px;
-  //   border-color: $drk-green;
-  //   border-opacity: 0.8;
+  text-align: center;
 }
 
 #map-data-description {
-  font-size: 1rem;
-  text-align: left;
-  padding: 45px 20px;
-  line-height: 1.4;
+  font-size: 0.98rem;
+  padding: 20px 40px;
 }
 
-.map-info {
+.map-info {s
   width: 27vw;
-  // border-right-style: solid;
-  // border-width: 1px;
-  // border-color: $drk-blu;
   border: none;
-  box-shadow: 5px 10px 18px $charcoal;
+  box-shadow: 20px 3px 25px rgb(0, 0, 0);
 }
 
 .map-image {
@@ -38,7 +29,6 @@
 }
 
 .map-data {
-  padding: 1rem 1rem;
   color: $charcoal;
 }
 
@@ -103,12 +93,19 @@
 }
 
 .mapboxgl-popup {
-    max-width: 400px;
-    font-size: 0.8rem;
-    color: $charcoal;
+  max-width: 400px;
+  font-size: 0.8rem;
+  color: $charcoal;
 }
 
 // ---------------------- Radar Chart ----------------------
 .radarChart {
 	//TODO: center RadarChart
+}
+
+.map-info #exit_button {
+  width: 40px;
+  margin-left: auto;
+  margin-top: 2px;
+  margin-right: 2px;
 }

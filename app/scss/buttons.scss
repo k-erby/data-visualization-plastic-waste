@@ -6,16 +6,15 @@
 
 @mixin button-spec($bg-color) {
   background: $bg-color;
-  padding: 12px 25px;
+  padding: 8px 25px;
   border-radius: 4px;
   border-width: 0px;
   color: $wht;
   font-weight: bold;
-  transition: all 0.3s linear;
+  transition: all 0.2s linear;
   cursor: pointer;
   text-decoration: none;
   margin-right: 10px;
-  font-size: small;
   font-family: $main-font;
 }
 
@@ -36,17 +35,24 @@
 }
 
 .map-button {
-    width: 90%;
-    margin-top: 10px;
-	margin-left: 6px;
-    @include button-spec($green);
+  width: 75%;
+  margin-top: 15px;
+  @include button-spec($green);
+  font-size: 16px;
+  padding: 10px;
+  background-color: transparent;
+  font-weight: 300;
+  border: 1px solid $charcoal;
+  color: $charcoal;
+}
+.map-button:hover {
+  @include button-spec-hover;
 }
 
 .map-button:hover {
   @include button-spec-hover;
 }
 
-// Gross, but this'll do for now
 .map-button-list {
-  margin-top: 120px;
+  margin-top: 10%;
 }
