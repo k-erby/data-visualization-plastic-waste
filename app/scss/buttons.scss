@@ -6,7 +6,7 @@
 
 @mixin button-spec($bg-color) {
     background: $bg-color;
-    padding: 8px 25px;
+    padding: 8px 0px;
     border-radius: 4px;
     border-width: 0px;
     color: $wht;
@@ -31,13 +31,9 @@
 .link-button:hover { @include button-spec-hover; }
 
 .map-button {
-    min-width: 250px;
+    width: 90%;
     margin-top: 10px;
+	margin-left: 6px;
     @include button-spec($green);
 }
 .map-button:hover { @include button-spec-hover; }
-
-// Gross, but this'll do for now
-.map-button-list {
-    margin-top: 150px;
-}

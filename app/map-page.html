@@ -19,6 +19,13 @@
     <!-- Mapbox -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'>
+	
+	
+	<!-- Google fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 </head>
 
 <!-- Basic Page Needs End
@@ -32,11 +39,11 @@
             <article class="map-data">
                 <p id="map-data-description"></p>
             </article>
-
+			<div class="radarChart"></div>
             <div class="map-button-list _direction-column _justify-center">
                 <button id="switch_to_percent_waste" class="map-button">Plastic Waste Per Capita</button>
-                <button id="percent_mismanaged_waste" class="map-button">Mismanaged Waste Percentage</button>
                 <button id="switch_to_total_waste" class="map-button">Total Plastic Waste Per Country</button>
+				<button id="percent_mismanaged_waste" class="map-button">Mismanaged Waste Percentage</button>
             </div>
         </section>
 
@@ -46,8 +53,14 @@
                 <p id="features-help">Click on different countries to bring up more information.</p>
             </div>
             <div class="map-overlay _direction-column" id="legend"></div>
-
-            <script src="app.js"></script>
+			
+			<!-- radar chart -->
+			<script type="text/javascript" src="radar_data.json"></script>
+			<script type="text/javascript" src="averages.json"></script>
+			<script src="radarChart.js"></script>
+			<!-- end radar chart -->
+			
+			<script src="app.js"></script>
         </section>
     </main>
 </body>
