@@ -1,6 +1,5 @@
 .buttons-con .action-link-wrap {
-  margin-top: 40px;
-}
+  margin-top: 40px; }
 
 .link-button {
   background: #709397;
@@ -12,11 +11,12 @@
   border-radius: 4px;
   border-width: 0px;
   color: #ffffff;
-  font-weight: bold;
-  transition: all 0.2s linear;
+  font-weight: 500;
+  transition: all 0.1s linear;
   cursor: pointer;
   text-decoration: none;
   margin-right: 10px;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   font-family: Raleway; }
@@ -29,11 +29,13 @@
   font-family: "Muli";
 }
 >>>>>>> Update sidebar design
+=======
+  font-family: "Muli"; }
+>>>>>>> Change icon colors
 
 .link-button:hover {
   background: #5a5c6c;
-  color: #ffffff;
-}
+  color: #ffffff; }
 
 .map-button {
 <<<<<<< HEAD
@@ -75,25 +77,30 @@
   border-radius: 4px;
   border-width: 0px;
   color: #ffffff;
-  font-weight: bold;
-  transition: all 0.2s linear;
+  font-weight: 500;
+  transition: all 0.1s linear;
   cursor: pointer;
   text-decoration: none;
   margin-right: 10px;
   font-family: "Muli";
   font-size: 16px;
   padding: 10px;
-  background-color: transparent;
-  font-weight: 300;
-  border: 1px solid #30424d;
-  color: #30424d;
-}
+  font-weight: 600;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: #a2b7b0; }
 
 .map-button:hover {
+<<<<<<< HEAD
   background: #5a5c6c;
 >>>>>>> Update sidebar design
   color: #ffffff;
 }
+=======
+  border: 1px solid #a2b7b0;
+  background-color: transparent;
+  color: #a2b7b0; }
+>>>>>>> Change icon colors
 
 <<<<<<< HEAD
 =======
@@ -103,65 +110,49 @@
 
 >>>>>>> Create new ui branch
 #intro-bg {
-  background-color: #a2b7b0;
-}
+  background-color: #a2b7b0; }
 
 #hexa {
   margin-top: -250px;
   margin-left: -400px;
   position: absolute;
   top: 50%;
-  left: 50%;
-}
+  left: 50%; }
 
 .message-box {
   height: 200px;
   width: 380px;
   margin-top: -100px;
   margin-left: 50px;
-  color: #fff;
+  color: #FFF;
   font-weight: 300;
   position: absolute;
   top: 50%;
-  left: 50%;
-}
+  left: 50%; }
 
 .message-box h1 {
   font-size: 3rem;
   line-height: 46px;
-  margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
 
-#Polygon-1,
-#Polygon-2,
-#Polygon-3,
-#Polygon-4,
-#Polygon-4,
-#Polygon-5 {
-  animation: float 1s infinite ease-in-out alternate;
-}
+#Polygon-1, #Polygon-2, #Polygon-3, #Polygon-4, #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate; }
 
 #Polygon-2 {
-  animation-delay: 0.2s;
-}
+  animation-delay: .2s; }
 
 #Polygon-3 {
-  animation-delay: 0.4s;
-}
+  animation-delay: .4s; }
 
 #Polygon-4 {
-  animation-delay: 0.6s;
-}
+  animation-delay: .6s; }
 
 #Polygon-5 {
-  animation-delay: 0.8s;
-}
+  animation-delay: .8s; }
 
 @keyframes float {
   100% {
-    transform: translateY(20px);
-  }
-}
+    transform: translateY(20px); } }
 
 /* -------------------------------------------
 				Flexbox Basics
@@ -171,8 +162,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 ._space-between {
   justify-content: space-between;
@@ -181,8 +171,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 ._space-around {
   justify-content: space-around;
@@ -191,8 +180,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 ._direction-column {
   -webkit-flex-direction: column;
@@ -201,8 +189,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 ._direction-row {
   -webkit-flex-direction: row;
@@ -211,8 +198,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 ._justify-center {
   justify-content: center;
@@ -222,8 +208,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 ._justify-right {
   justify-content: flex-end;
@@ -233,8 +218,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 #map-data-title {
   font-size: 1.8rem;
@@ -268,37 +252,47 @@
   color: #000;
   padding: 40px;
   border: none;
-  text-align: center;
-}
+  text-align: center; }
 
 #map-data-description {
   font-size: 0.98rem;
+<<<<<<< HEAD
   padding: 20px 40px;
 }
 >>>>>>> Update sidebar design
+=======
+  padding: 20px 40px; }
+>>>>>>> Change icon colors
 
 .map-info {
   width: 27vw;
   border: none;
+<<<<<<< HEAD
 <<<<<<< HEAD
   box-shadow: 5px 10px 18px #30424d;
 =======
   box-shadow: 20px 3px 25px black;
 >>>>>>> Update sidebar design
 }
+=======
+  box-shadow: 20px 3px 25px black; }
+>>>>>>> Change icon colors
 
 .map-image {
   width: 73vw;
-  height: 100vh;
-}
+  height: 100vh; }
 
 .map-data {
+<<<<<<< HEAD
 <<<<<<< HEAD
   padding: 1rem 1rem;
 =======
 >>>>>>> Update sidebar design
   color: #30424d;
 }
+=======
+  color: #30424d; }
+>>>>>>> Change icon colors
 
 .map-overlay {
   position: absolute;
@@ -306,8 +300,7 @@
   right: 0;
   background: rgba(255, 255, 255, 0.8);
   margin-right: 20px;
-  border-radius: 3px;
-}
+  border-radius: 3px; }
 
 #features {
   top: 0;
@@ -317,23 +310,20 @@
   width: 220px;
   margin-top: 20px;
   font-size: 0.85rem;
-  color: #30424d;
-}
+  color: #30424d; }
 
 #legend {
   padding: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   height: 60px;
   margin: 0px 50px 40px 0px;
-  width: 220px;
-}
+  width: 220px; }
 
 .legend-key {
   display: inline-block;
   border-radius: 20%;
   width: 15px;
-  height: 15px;
-}
+  height: 15px; }
 
 .legendKeyBox,
 .legendTextBox {
@@ -343,12 +333,12 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
-}
+  display: flex; }
 
 .legendTextBox {
   padding-top: 5px;
   font-size: 0.85rem;
+<<<<<<< HEAD
   color: #30424d;
 }
 <<<<<<< HEAD
@@ -359,25 +349,36 @@
   margin: 0 auto;
 }
 >>>>>>> Update sidebar design
+=======
+  color: #30424d; }
+
+#map-icon {
+  width: 88px;
+  margin: 0 auto; }
+>>>>>>> Change icon colors
 
 #map {
   opacity: 0.9;
   width: 80vw;
-  height: 100vh;
-}
+  height: 100vh; }
 
 .mapboxgl-popup {
   max-width: 400px;
   font-size: 0.8rem;
+<<<<<<< HEAD
   color: #30424d;
 }
 <<<<<<< HEAD
 =======
+=======
+  color: #30424d; }
+>>>>>>> Change icon colors
 
 .map-info #exit_button {
   width: 40px;
   margin-left: auto;
   margin-top: 2px;
+<<<<<<< HEAD
   margin-right: 2px;
 }
 
@@ -386,21 +387,23 @@
   margin: 0 auto;
 }
 >>>>>>> Update sidebar design
+=======
+  margin-right: 2px; }
+>>>>>>> Change icon colors
 
 body {
   height: 100%;
-  width: 100%;
-}
+  width: 100%; }
 
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 main {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   font-family: Raleway; }
@@ -412,3 +415,6 @@ main {
   font-family: "Muli";
 }
 >>>>>>> Update sidebar design
+=======
+  font-family: "Muli"; }
+>>>>>>> Change icon colors

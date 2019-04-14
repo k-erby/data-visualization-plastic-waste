@@ -17,7 +17,7 @@
   padding: 20px 40px;
 }
 
-.map-info {s
+.map-info {
   width: 27vw;
   border: none;
   box-shadow: 20px 3px 25px rgb(0, 0, 0);
@@ -85,6 +85,10 @@
   color: $charcoal;
 }
 
+#map-icon {
+  width: 88px;
+  margin: 0 auto;
+}
 // ---------------------- Mapbox Specs ----------------------
 #map {
   opacity: 0.9;
