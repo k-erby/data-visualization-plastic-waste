@@ -6,7 +6,7 @@
 	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 	
 	var color = d3.scale.ordinal()
-				.range(["#EDC951","#CC333F"]);//,"#00A0B0"]);
+				.range(["#ffe880", "#923334"]);//["#EDC951","#CC333F","#00A0B0"]);
 	
 	var radarChartOptions = {
 	  w: width,
@@ -47,6 +47,30 @@
 		//show chart
 		RadarChart(".radarChart", [radar_averages,radar_country], radarChartOptions);
 	};
+	
+	function remove_sidebar(title){
+		//Remove RadarChart and exit button
+		document.getElementsByTagName("svg")[0].remove();
+		document.getElementById("exit_button").remove();
+		
+		//Return sidebar to original view
+		if(title == displayName[0]){
+			document.getElementById("percent_mismanaged_waste").click();
+			console.log("case 1");
+		} else if (title == displayName[1]){
+			document.getElementById("switch_to_total_waste").click();
+			console.log("case 2");
+		} else {
+			document.getElementById("switch_to_percent_waste").click();
+			console.log("case 3");
+		}
+		
+		//Un-hide nav buttons
+		document.getElementById("percent_mismanaged_waste").style.visibility = "visible";
+		document.getElementById("switch_to_total_waste").style.visibility = "visible";
+		document.getElementById("switch_to_percent_waste").style.visibility = "visible";
+	};
+	
 /* ------------- End sidebar d3 ------------- */
 
 /* ----------------------------------------------------
@@ -76,17 +100,6 @@ const dataDescriptions = {
     2: "Daily plastic waste generation per person, measured in kilograms per person per day.<br><br>This measures the"
         + " overall per capita plastic waste generation rate prior to waste management, recycling or incineration."
         + " It does not therefore directly indicate the risk of pollution to waterways or marine environments."
-	/*0: "Share of total plastic waste that is inadequately managed. Inadequately disposed waste is not formally managed"
-        + " and includes disposal in dumps or open, uncontrolled landfills, where it is not fully contained."
-        + " Inadequately managed waste has high risk of polluting rivers and oceans. This does not include 'littered'"
-        + " plastic waste, which is approximately 2% of total waste (including high-income countries).",
-    1: "Total plastic waste generation by country, measured in tonnes per year. This measures total plastic waste"
-        + " generation prior to management and therefore does not represent the quantity of plastic at risk of"
-        + " polluting waterways, rivers and the ocean environment. High-income countries typically have well-managed"
-        + " waste streams and therefore low levels of plastic pollution to external environments.",
-    2: "Daily plastic waste generation per person, measured in kilograms per person per day. This measures the"
-        + " overall per capita plastic waste generation rate prior to waste management, recycling or incineration."
-        + " It does not therefore directly indicate the risk of pollution to waterways or marine environments."*/
 }
 
 const stylesAndGeoJson = {
@@ -206,37 +219,32 @@ function refreshMap () {
 	map.on('click', 'country-borders', function (e) {
         var country = e.features[0].properties.name;
 		console.log(country);
-	
+			
 		build_radar(country);
 		   
 		//Modify sidebar labels
 		var mapData = document.getElementById("map-data-title");
 		var mapDataDescription = document.getElementById("map-data-description");
+		var oldTitle = mapData.textContent;
 		mapData.innerHTML = `${country}`;
 		mapDataDescription.innerHTML = `The radar chart shows how ${country} (red) differs from average plastic waste impact (yellow).<br><br>Percentages are in terms of total country waste.`;
 		
 		//Hide nav buttons
-		var buttons = document.getElementsByClassName("map-button-list")[0];
-		buttons.style.visibility = "hidden";
+		document.getElementById("percent_mismanaged_waste").style.visibility = "hidden";
+		document.getElementById("switch_to_total_waste").style.visibility = "hidden";
+		document.getElementById("switch_to_percent_waste").style.visibility = "hidden";
 		
-		
-		//Add exit button
-		/*var sidebar = document.getElementsByClassName("map-info")[0];
-		var exit_button = document.createElement("button");
-		exit_button.type = "button";
-		exit_button.id = "exit_button";
-		exit_button.innerHTML = "X";
-		sidebar.prepend(exit_button);
-		*/
-		//exit_button.onclick = func;
-		
-		//TODO: add radar legend
+		if (!document.contains(document.getElementById("exit_button"))) {
+			//Add exit button
+			var exit_button = document.createElement("button");
+			exit_button.type = "button";
+			exit_button.innerHTML = "Exit";
+			exit_button.id = "exit_button";
+			exit_button.className = "map-button";
+			document.getElementsByClassName("map-button-list")[0].prepend(exit_button);
+		}
+		document.getElementById("exit_button").onclick = () => remove_sidebar(oldTitle);
     });
-	
-	//TODO: add removal of radarChart
-	//on-click of exit button
-	
-	//TODO: display total waste (current, average)
 	
 	//Clear hover pop-up
 	map.on('mouseleave', 'country-borders', function() {
