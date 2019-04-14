@@ -85,7 +85,7 @@ const displayName = {
 };
 
 const displayIcon = {
-  0: "img/trash.png",
+  0: "img/banana.png",
   1: "img/trash.png",
   2: "img/person.png"
 };

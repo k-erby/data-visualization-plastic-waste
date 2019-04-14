@@ -10,8 +10,8 @@
   border-radius: 4px;
   border-width: 0px;
   color: $wht;
-  font-weight: bold;
-  transition: all 0.2s linear;
+  font-weight: 500;
+  transition: all 0.1s linear;
   cursor: pointer;
   text-decoration: none;
   margin-right: 10px;
@@ -40,13 +40,15 @@
   @include button-spec($green);
   font-size: 16px;
   padding: 10px;
-  background-color: transparent;
-  font-weight: 300;
-  border: 1px solid $charcoal;
-  color: $charcoal;
+  font-weight: 600;
+  border: 1px solid $wht;
+  color: $wht;
+  background-color: $green;
 }
 .map-button:hover {
-  @include button-spec-hover;
+  border: 1px solid $green;
+  background-color: transparent;
+  color: $green;
 }
 
 .map-button-list {
