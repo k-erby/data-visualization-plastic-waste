@@ -3,7 +3,7 @@
 
 .link-button {
   background: #709397;
-  padding: 9px 25px;
+  padding: 5px;
   border-radius: 4px;
   border-width: 0px;
   color: #ffffff;
@@ -20,9 +20,9 @@
 
 .map-button {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 2px;
   background: #a2b7b0;
-  padding: 9px 25px;
+  padding: 5px;
   border-radius: 4px;
   border-width: 0px;
   color: #ffffff;
@@ -44,12 +44,8 @@
   background-color: transparent;
   color: #a2b7b0; }
 
-.map-button:hover {
-  background: #5a5c6c;
-  color: #ffffff; }
-
 .map-button-list {
-  margin-top: 10%; }
+  margin-top: 1em; }
 
 #intro-bg {
   background-color: #a2b7b0; }
@@ -258,12 +254,6 @@
   max-width: 400px;
   font-size: 0.8rem;
   color: #30424d; }
-
-.map-info #exit_button {
-  width: 40px;
-  margin-left: auto;
-  margin-top: 2px;
-  margin-right: 2px; }
 
 body {
   height: 100%;
