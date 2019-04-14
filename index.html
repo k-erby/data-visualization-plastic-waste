@@ -15,11 +15,162 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./app/css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+   <link rel="stylesheet" href="main1.css">
+    
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Sector', 'Plastic waste generation (million tonnes)'],
+         
+          ['Building and Construction',  65],
+          ['Consumer & Institutional Products', 42],
+          ['Electrical/Electronic',    18],
+         
+          ['Industrial Machinery', 3],
+         
+          ['Packaging', 146],
+          ['Textiles',    47],
+
+          ['Transportation', 27],
+          ['Other sector',    59]
+        ]);
+
+        var options = {
+          title: 'Plastic Waste By sector',
+          pieHole: 0.2,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Discarded', 'Incinerated', 'Recycled'],
+          ['1980',  100,      0, 0],
+		   ['1981',  98.3,      1.7, 0 ],
+		    ['1982',  97.6,      2.4, 0 ],
+			 ['1983',  96.9,      3.1, 0 ],
+			  ['1984',  96.2,      3.8, 0],
+			   ['1985',  95.5,      4.5, 0],
+			    ['1986',  94.8,      5.2, 0],
+				 ['1987',  94.1,      5.9, 0],
+				  ['1988',  92.8,      6.6, 0.6],
+				   ['1989',  91.4,      7.3, 1.3],
+				    ['1990',  90,      8, 2],
+					['1991',  88.6,      8.7, 2.7 ],
+					['1992',  87.2,      9.4, 3.4 ],
+					['1993',  85.8,      10.1,4.1 ],
+					['1994',  84.4,      10.8,4.8 ],
+					['1995',  83,      11.5,5.5 ],
+					['1996',  81.6,      12.2, 6.2],
+					['1997',  80.2,      12.9, 6.9],
+					['1998',  78.8,      13.6, 7.6],
+					['1999',  77.4,      14.3, 8.3],
+					
+				
+          ['2000',  76,      15, 9],
+		  ['2001',  74.6,      15.7, 9.7],
+		  ['2002',  73.2,      16.4, 10.4],
+		  ['2003',  71.8,      17.1, 11.1 ],
+		  ['2004',  70.4,      17.8, 11.8 ],
+		  ['2005',  69,      18.5, 12.5],
+		  ['2006',  67.6,      19.2, 13.2],
+		  ['2007',  66.2,      19.9, 13.9 ],
+		  ['2008',  64.8,      20.6, 14.6],
+		  ['2009',  63.4,      21.3, 15.3],
+		  ['2010',  62,      22, 16],
+		  
+        ['2011',  60.6,      22.7, 16.7 ],
+		['2012',  59.2,      23.4, 17.4 ],
+	
+		  
+		  ['2013', 57.8 ,      24.1, 18.1 ],
+          ['2014', 56.4 ,      24.8, 18.8 ],
+          ['2015', 55 ,       25.5, 19.5],
+         
+        ]);
+
+        var options = {
+          title: 'Estimated share of global plastic waste by disposal method. ',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<script type="text/javascript">
+	google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Region', 'Percentage share of global mismanaged plastic waste by region in 2010',],
+        ['East Asia and Pacific', 60],
+        ['South Asia', 11],
+        ['Sub-Saharan Africa', 8.9],
+        ['Middle East and North Africa', 8.3],
+        ['Latin America and Caribbean', 7.2],
+         ['Europe and Central Asia', 3.6],
+          ['North America', 0.9]
+      ]);
+
+      var options = {
+        title: 'global mismanaged plastic waste by region in 2010',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Share of global mismanaged plastic waste by region in 2010',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Region'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div1'));
+
+      chart.draw(data, options);
+    }
+	</script>
 </head>
 
 <!-- Basic Page Needs End
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <body id="intro-bg">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Global Plastic Waste Production</a>
+    </div>
+	<ul class="nav navbar-nav">
+      <li class="active"><a href="#donutchart">PLASTIC WASTE BY SECTOR</a></li>
+	  </ul>
+	  <ul class="nav navbar-nav">
+      <li class="active"><a href="#chart_div">GLOBAL PLASTIC WASTE BY DISPOSAL</a></li>
+	  </ul>
+	  <ul class="nav navbar-nav">
+      <li class="active"><a href="#chart_div1">MISMANAGED PLASTIC WASTE BY REGION</a></li>
+	  </ul>
+    
+  </div>
+</nav>
     <main class="_justify-center _direction-row">
         <!-- TODO: this is where D3 visualization can go -->
         <svg width="380px" height="500px" viewBox="0 0 837 1045" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -42,11 +193,46 @@
             <div class="buttons-con">
                 <div class="action-link-wrap">
                     <!-- Could cycle through the visualizations -->
-                    <a class="link-button" href="./app/continue.html"> Visualization by categories</a>
+                    
                     <a class="link-button" href="./app/map-page.html">See the Map</a>
                 </div>
             </div>
         </section>
     </main>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div class="jumbotron">
+ <CENTER><u> <b><h3>PLASTIC WASTE BY SECTOR</h3>  </u></b><br>
+  <div id="donutchart" style="width: 850px; height: 550px;"></div> 
+  <br>
+<u> <b><h3> GLOBAL PLASTIC WASTE BY DISPOSAL</h3>  </u></b> <br> 
+  <div id="chart_div" style="width: 850px; height: 500px;"></div>
+  <br>
+  <u> <b><h3> GLOBAL MISMANAGED PLASTIC WASTE BY REGION</h3>  </u></b> <br> 
+  <div id="chart_div1" style="width: 850px; height: 500px;"></div>
+ </CENTER>
+</div>
+<center><div class="container">
+  <font color=black size=5><p>National Geographic Video on:<br> <font color=black size=3> How Much Plastic Trash Is Littering the Earth</p></font></font>
+ 
+  <div >
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/jyLjUEOcLgg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  
+  </div> 
+</div></center>
+ <footer>
+     	<div class="row">
+
+     		
+      	<center><div class="col-six tab-full">
+	      	<div class="copyright">
+		        	<span>© Group project on Garbage and plastic waste around the world</span> 
+		        		         	
+		         </div>		                  
+	      	</div></center>
+
+	     
+
+      	</div> <!-- /row -->     	
+   </footer>  
 </body>
 </html>
