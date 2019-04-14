@@ -189,7 +189,7 @@
   height: 100vh; }
 
 .map-data {
-  padding-top: 1.5em;
+  padding-top: 1em;
   color: #30424d; }
 
 .map-overlay {
@@ -201,7 +201,7 @@
   border-radius: 3px; }
 
 #sidebar-content-container {
-  padding: 1.5em 1.5em 0 1.5em; }
+  padding: 1em 1.5em 0 1.5em; }
 
 #features {
   top: 0;

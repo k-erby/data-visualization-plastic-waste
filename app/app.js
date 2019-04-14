@@ -1,8 +1,8 @@
 /* ------------- Start sidebar d3 visualization things ------------- */
 
 	//Initialize radar chart variables
-	var margin = {top: 35, right: 80, bottom: 30, left: 50},
-	width = Math.min(300, window.innerWidth - 10) - margin.left - margin.right,
+	var margin = {top: 35, right: 50, bottom: 30, left: 50},
+	width = Math.min(270, window.innerWidth - 10) - margin.left - margin.right,
 	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
 	var color = d3.scale.ordinal()
@@ -235,7 +235,7 @@ function refreshMap () {
 		var mapDataDescription = document.getElementById("map-data-description");
 		var oldTitle = mapData.textContent;
 		mapData.innerHTML = `${country}`;
-		mapDataDescription.innerHTML = `The radar chart shows how ${country} (red) differs from average plastic waste impact (yellow).<br><br>Percentages are in terms of total country waste.`;
+		mapDataDescription.innerHTML = `The radar chart shows how ${country} (red) differs from average plastic waste impact (yellow). Percentages are in terms of total country waste.`;
 
 		//Hide nav buttons
 		document.getElementById("percent_mismanaged_waste").style.visibility = "hidden";
