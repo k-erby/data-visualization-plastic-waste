@@ -180,6 +180,7 @@
 
 .map-info {
   width: 25vw;
+  min-width: 300px;
   border: none;
   box-shadow: 20px 3px 25px black; }
 
@@ -200,7 +201,7 @@
   border-radius: 3px; }
 
 #sidebar-content-container {
-  padding: 4em 2em 0 2em; }
+  padding: 1.5em 1.5em 0 1.5em; }
 
 #features {
   top: 0;
@@ -243,7 +244,7 @@
 #map-icon {
   width: 78px;
   margin: 0 auto;
-  margin: 1.5em auto 0 auto; }
+  margin: 1em auto 0 auto; }
 
 #map {
   opacity: 0.9;

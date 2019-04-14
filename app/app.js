@@ -83,6 +83,12 @@ Look at the geojson from mapbox and their us-states:
 
 var hoveredCountryId = null;
 
+const displayIcon = {
+  0: "img/banana.png",
+  1: "img/trash.png",
+  2: "img/person.png"
+};
+
 const displayName = {
     0: "Mismanaged Waste",
     1: "Total Waste",
@@ -197,8 +203,10 @@ function refreshMap () {
     // update the map info
     var mapData = document.getElementById("map-data-title");
     var mapDataDescription = document.getElementById("map-data-description");
+    var mapIcon = document.getElementById("map-icon");
     mapData.innerHTML = `${outputMapName()}`;
     mapDataDescription.innerHTML = `${outputDataDescription()}`;
+    mapIcon.src = `${outputIcon()}`;
 
     /* ------------- Country Specific Actions ------------- */
 
@@ -259,6 +267,20 @@ function outputMapName() {
         case stylesAndGeoJson.total_waste[1]:               { return displayName[1]; }
         case stylesAndGeoJson.percentage_total_waste[1]:    { return displayName[2]; }
     }
+}
+
+function outputIcon() {
+  switch (geoJson) {
+    case stylesAndGeoJson.mismanaged_waste[1]: {
+      return displayIcon[0];
+    }
+    case stylesAndGeoJson.total_waste[1]: {
+      return displayIcon[1];
+    }
+    case stylesAndGeoJson.percentage_total_waste[1]: {
+      return displayIcon[2];
+    }
+  }
 }
 
 function outputDataDescription() {

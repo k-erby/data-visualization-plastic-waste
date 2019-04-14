@@ -19,6 +19,7 @@
 
 .map-info {
   width: 25vw;
+  min-width: 300px;
   border: none;
   box-shadow: 20px 3px 25px rgb(0, 0, 0);
 }
@@ -44,7 +45,7 @@
 }
 
 #sidebar-content-container {
-  padding: 4em 2em 0 2em;
+  padding: 1.5em 1.5em 0 1.5em;
 }
 
 #features {
@@ -93,7 +94,7 @@
 #map-icon {
   width: 78px;
   margin: 0 auto;
-  margin: 1.5em auto 0 auto;
+  margin: 1em auto 0 auto;
 }
 // ---------------------- Mapbox Specs ----------------------
 #map {
