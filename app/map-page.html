@@ -1,51 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Basic Page Needs
+  <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Plastic Pollution</title>
-    <meta name="description" content="The Environmental Impacts of Plastic Waste Globally">
-    <meta name="author" content="The Disposables">
+    <meta
+      name="description"
+      content="The Environmental Impacts of Plastic Waste Globally"
+    />
+    <meta name="author" content="The Disposables" />
 
     <!-- Mobile Specific Metas
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
 
     <!-- Mapbox -->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'>
-	
-	
-	<!-- Google fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-</head>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
-<!-- Basic Page Needs End
+    <!-- Google fonts -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"
+      charset="utf-8"
+    ></script>
+  </head>
+
+  <!-- Basic Page Needs End
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<body>
+  <body>
     <main class="app _direction-row">
-        <section class="map-info _direction-column">
-            <h1 id="map-data-title" class="_justify-center"></h1>
+      <section class="map-info _direction-column">
+        <div id="sidebar-content-container">
+          <h1 id="map-data-title" class="_justify-center"></h1>
 
-            <!-- map information goes here -->
-            <article class="map-data">
-                <p id="map-data-description"></p>
-            </article>
-			<div class="radarChart"></div>
-            <div class="map-button-list _direction-column _justify-center">
-                <button id="switch_to_percent_waste" class="map-button">Plastic Waste Per Capita</button>
-                <button id="switch_to_total_waste" class="map-button">Total Plastic Waste Per Country</button>
-				<button id="percent_mismanaged_waste" class="map-button">Mismanaged Waste Percentage</button>
-            </div>
-        </section>
+          <!-- map information goes here -->
+          <img id="map-icon" class="_justify-center" src="" alt="" />
+          <article class="map-data">
+            <p id="map-data-description"></p>
+          </article>
+          <div class="_justify-center">
+            <div class="radarChart"></div>
+          </div>
+
+          <div class="map-button-list _direction-column _justify-center">
+            <button id="switch_to_percent_waste" class="map-button">
+              Plastic Waste Per Capita
+            </button>
+            <button id="switch_to_total_waste" class="map-button">
+              Total Plastic Waste Per Country
+            </button>
+            <button id="percent_mismanaged_waste" class="map-button">
+              Mismanaged Waste Percentage
+            </button>
+          </div>
+        </div>
+      </section>
 
         <section class="map-image">
             <div id="map"></div>
@@ -53,15 +80,16 @@
                 <p id="features-help">Click on different countries to bring up more information.</p>
             </div>
             <div class="map-overlay _direction-column" id="legend"></div>
-			
+
 			<!-- radar chart -->
 			<script type="text/javascript" src="radar_data.json"></script>
 			<script type="text/javascript" src="averages.json"></script>
 			<script src="radarChart.js"></script>
 			<!-- end radar chart -->
-			
-			<script src="app.js"></script>
+          <script src="app.js"></script>
         </section>
+
+      </section>
     </main>
-</body>
+  </body>
 </html>

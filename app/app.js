@@ -1,13 +1,13 @@
 /* ------------- Start sidebar d3 visualization things ------------- */
 
 	//Initialize radar chart variables
-	var margin = {top: 35, right: 80, bottom: 30, left: 50},
-	width = Math.min(300, window.innerWidth - 10) - margin.left - margin.right,
+	var margin = {top: 35, right: 50, bottom: 30, left: 50},
+	width = Math.min(270, window.innerWidth - 10) - margin.left - margin.right,
 	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-	
+
 	var color = d3.scale.ordinal()
 				.range(["#ffe880", "#923334"]);//["#EDC951","#CC333F","#00A0B0"]);
-	
+
 	var radarChartOptions = {
 	  w: width,
 	  h: height,
@@ -18,9 +18,9 @@
 	  roundStrokes: true,
 	  color: color
 	};
-	
+
 	var nice_labels = {"percent_inadequately_managed":"inadequately managed plastic", "percent_plastic_water":"plastic in water streams", "percent_plastic":"total plastic"};
-	
+
 	//note: plastic_waste_complete and averages are imported JSON
 	var d3_country_json = JSON.parse(plastic_waste_complete);
 	var d3_averages_json = JSON.parse(averages);
@@ -30,11 +30,11 @@
 			radar_averages.push({"axis": nice_labels[key], "value": d3_averages_json[key]/100});
 		}
 	}
-	
+
 	//Adds current country radar chart to sidebar
 	var build_radar = function(country){
 	var country_json = d3_country_json.filter(function(c){return c.country == country})[0];
-  
+
 		console.log(country_json);
 		console.log(d3_averages_json);
 		var radar_country = [];
@@ -47,12 +47,12 @@
 		//show chart
 		RadarChart(".radarChart", [radar_averages,radar_country], radarChartOptions);
 	};
-	
+
 	function remove_sidebar(title){
 		//Remove RadarChart and exit button
 		document.getElementsByTagName("svg")[0].remove();
 		document.getElementById("exit_button").remove();
-		
+
 		//Return sidebar to original view
 		if(title == displayName[0]){
 			document.getElementById("percent_mismanaged_waste").click();
@@ -64,13 +64,13 @@
 			document.getElementById("switch_to_percent_waste").click();
 			console.log("case 3");
 		}
-		
+
 		//Un-hide nav buttons
 		document.getElementById("percent_mismanaged_waste").style.visibility = "visible";
 		document.getElementById("switch_to_total_waste").style.visibility = "visible";
 		document.getElementById("switch_to_percent_waste").style.visibility = "visible";
 	};
-	
+
 /* ------------- End sidebar d3 ------------- */
 
 /* ----------------------------------------------------
@@ -82,6 +82,12 @@ Look at the geojson from mapbox and their us-states:
 ---------------------------------------------------- */
 
 var hoveredCountryId = null;
+
+const displayIcon = {
+  0: "img/banana.png",
+  1: "img/trash.png",
+  2: "img/person.png"
+};
 
 const displayName = {
     0: "Mismanaged Waste",
@@ -197,13 +203,15 @@ function refreshMap () {
     // update the map info
     var mapData = document.getElementById("map-data-title");
     var mapDataDescription = document.getElementById("map-data-description");
+    var mapIcon = document.getElementById("map-icon");
     mapData.innerHTML = `${outputMapName()}`;
     mapDataDescription.innerHTML = `${outputDataDescription()}`;
+    mapIcon.src = `${outputIcon()}`;
 
     /* ------------- Country Specific Actions ------------- */
-	
+
 	var popup = new mapboxgl.Popup()
-	
+
 	//Hover pop-up
     map.on('mouseenter', 'country-borders', function (e) {
 		map.getCanvas().style.cursor = 'pointer';
@@ -214,26 +222,26 @@ function refreshMap () {
             .setHTML(`<h3>${country}</h3>${outputDataFormat(value)}`)
             .addTo(map);
     });
-	
+
 	//Click to modify sidebar
 	map.on('click', 'country-borders', function (e) {
         var country = e.features[0].properties.name;
 		console.log(country);
-			
+
 		build_radar(country);
-		   
+
 		//Modify sidebar labels
 		var mapData = document.getElementById("map-data-title");
 		var mapDataDescription = document.getElementById("map-data-description");
 		var oldTitle = mapData.textContent;
 		mapData.innerHTML = `${country}`;
-		mapDataDescription.innerHTML = `The radar chart shows how ${country} (red) differs from average plastic waste impact (yellow).<br><br>Percentages are in terms of total country waste.`;
-		
+		mapDataDescription.innerHTML = `The radar chart shows how ${country} (red) differs from average plastic waste impact (yellow).<br>Percentages are in terms of total country waste.`;
+
 		//Hide nav buttons
 		document.getElementById("percent_mismanaged_waste").style.visibility = "hidden";
 		document.getElementById("switch_to_total_waste").style.visibility = "hidden";
 		document.getElementById("switch_to_percent_waste").style.visibility = "hidden";
-		
+
 		if (!document.contains(document.getElementById("exit_button"))) {
 			//Add exit button
 			var exit_button = document.createElement("button");
@@ -245,7 +253,7 @@ function refreshMap () {
 		}
 		document.getElementById("exit_button").onclick = () => remove_sidebar(oldTitle);
     });
-	
+
 	//Clear hover pop-up
 	map.on('mouseleave', 'country-borders', function() {
 		map.getCanvas().style.cursor = '';
@@ -259,6 +267,20 @@ function outputMapName() {
         case stylesAndGeoJson.total_waste[1]:               { return displayName[1]; }
         case stylesAndGeoJson.percentage_total_waste[1]:    { return displayName[2]; }
     }
+}
+
+function outputIcon() {
+  switch (geoJson) {
+    case stylesAndGeoJson.mismanaged_waste[1]: {
+      return displayIcon[0];
+    }
+    case stylesAndGeoJson.total_waste[1]: {
+      return displayIcon[1];
+    }
+    case stylesAndGeoJson.percentage_total_waste[1]: {
+      return displayIcon[2];
+    }
+  }
 }
 
 function outputDataDescription() {
@@ -311,5 +333,4 @@ function displayLegend() {
 
     legend.appendChild(legendText);
 }
-
 
