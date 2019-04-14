@@ -249,7 +249,8 @@ function refreshMap() {
 
     //Hide nav buttons
     var buttons = document.getElementsByClassName("map-button-list")[0];
-    buttons.style.visibility = "hidden";
+    buttons.style.display = "none";
+    mapIcon.style.display = "none";
 
     //Add exit button
     /*var sidebar = document.getElementsByClassName("map-info")[0];
