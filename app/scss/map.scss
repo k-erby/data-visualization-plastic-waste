@@ -5,31 +5,31 @@
 @import "./branding.scss";
 
 #map-data-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: $black;
-  padding: 40px;
+  padding: 0px;
   border: none;
   text-align: center;
 }
 
 #map-data-description {
   font-size: 0.98rem;
-  padding: 20px 40px;
+  padding: 0px;
 }
 
 .map-info {
-  width: 27vw;
+  width: 25vw;
   border: none;
   box-shadow: 20px 3px 25px rgb(0, 0, 0);
 }
 
 .map-image {
-  width: 73vw;
+  width: 75vw;
   height: 100vh;
 }
 
 .map-data {
-  // padding: 1rem 1rem;
+  padding-top: 1.5em;
   color: $charcoal;
 }
 
@@ -41,6 +41,10 @@
   background: rgba(255, 255, 255, 0.8);
   margin-right: 20px;
   border-radius: 3px;
+}
+
+#sidebar-content-container {
+  padding: 4em 2em 0 2em;
 }
 
 #features {
@@ -87,8 +91,9 @@
 }
 
 #map-icon {
-  width: 88px;
+  width: 78px;
   margin: 0 auto;
+  margin: 1.5em auto 0 auto;
 }
 // ---------------------- Mapbox Specs ----------------------
 #map {
