@@ -38,9 +38,8 @@
   width: 75%;
   margin-top: 15px;
   @include button-spec($green);
-  font-size: 16px;
-  padding: 10px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   border: 1px solid $wht;
   color: $wht;
   background-color: $green;
