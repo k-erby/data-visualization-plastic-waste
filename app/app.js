@@ -45,7 +45,7 @@
 		}
 
 		//show chart
-		RadarChart(".radarChart", [radar_averages,radar_country], radarChartOptions);
+		radarChart(".radarChart", [radar_averages,radar_country], radarChartOptions);
 	};
 
 	function remove_sidebar(title){
