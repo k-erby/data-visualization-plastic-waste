@@ -5,39 +5,52 @@
 @import "./branding.scss";
 
 @mixin button-spec($bg-color) {
-    background: $bg-color;
-    padding: 8px 25px;
-    border-radius: 4px;
-    border-width: 0px;
-    color: $wht;
-    font-weight: bold;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    text-decoration: none;
-    margin-right: 10px;
-    font-family: $main-font;
+  background: $bg-color;
+  padding: 5px;
+  border-radius: 4px;
+  border-width: 0px;
+  color: $wht;
+  font-weight: 500;
+  transition: all 0.1s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  font-family: $main-font;
 }
 
 @mixin button-spec-hover {
-    background: $drk-purple;
-    color: $wht;
+  background: $drk-purple;
+  color: $wht;
 }
 
 .buttons-con .action-link-wrap {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
-.link-button { @include button-spec($drk-blu); }
-.link-button:hover { @include button-spec-hover; }
+.link-button {
+  @include button-spec($drk-blu);
+}
+.link-button:hover {
+  @include button-spec-hover;
+}
 
 .map-button {
-    min-width: 250px;
-    margin-top: 10px;
-    @include button-spec($green);
+  width: 100%;
+  margin-top: 2px;
+  @include button-spec($green);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid $wht;
+  color: $wht;
+  margin-right: 0 !important;
+  background-color: $green;
 }
-.map-button:hover { @include button-spec-hover; }
+.map-button:hover {
+  border: 1px solid $green;
+  background-color: transparent;
+  color: $green;
+}
 
-// Gross, but this'll do for now
 .map-button-list {
-    margin-top: 150px;
+  margin-top: 1em;
 }
